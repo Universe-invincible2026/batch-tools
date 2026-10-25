@@ -34,7 +34,7 @@
 @echo off
 chcp 936 >nul
 title Hosts工具
-set "CORRECT_PWD=1234"
+set "CORRECT_PWD=12345"
 cls
 set "USER_PW="
 set /p USER_PW=请输入密码：
