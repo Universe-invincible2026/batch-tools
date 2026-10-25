@@ -33,13 +33,13 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 chcp 936 >nul
-title Hosts¹¤¾ß
-set "CORRECT_PWD=20100314xx"
+title Hostså·¥å…·
+set "CORRECT_PWD=1234"
 cls
 set "USER_PW="
-set /p USER_PW=ÇëÊäÈëÃÜÂë£º
+set /p USER_PW=è¯·è¾“å…¥å¯†ç ï¼š
 if not "%USER_PW%"=="%CORRECT_PWD%" (
-echo ÃÜÂë´íÎó£¬ÍË³ö
+echo å¯†ç é”™è¯¯ï¼Œé€€å‡º
 timeout /t 2 /nobreak>nul
 exit
 )
@@ -50,26 +50,26 @@ set "TMPHOST=%temp%\__tmp_hosts.txt"
 :MENU
 cls
 echo ======================================
-echo        HostsË«ÅäÖÃ¹ÜÀí¹¤¾ß
-echo 1.ÔØÈëÅäÖÃ1£¨²»ÆÁ±Î¶¹°ü£©
-echo 2.ÔØÈëÅäÖÃ2£¨ÆÁ±Î¶¹°ü£©
-echo 3.»Ö¸´ÏµÍ³Ô­Ê¼hosts±¸·Ý
-echo 4.ÍË³ö
+echo        HostsåŒé…ç½®ç®¡ç†å·¥å…·
+echo 1.è½½å…¥é…ç½®1ï¼ˆä¸å±è”½è±†åŒ…ï¼‰
+echo 2.è½½å…¥é…ç½®2ï¼ˆå±è”½è±†åŒ…ï¼‰
+echo 3.æ¢å¤ç³»ç»ŸåŽŸå§‹hostså¤‡ä»½
+echo 4.é€€å‡º
 echo ======================================
-set /p sel=ÇëÊäÈëÊý×ÖÑ¡Ôñ£º
+set /p sel=è¯·è¾“å…¥æ•°å­—é€‰æ‹©ï¼š
 if "%sel%"=="1" goto SET1
 if "%sel%"=="2" goto SET2
 if "%sel%"=="3" goto RESTORE_BAK
 if "%sel%"=="4" goto EXIT
 goto MENU
 
-:: »ñÈ¡hostsÐ´ÈëÈ¨ÏÞ
+:: èŽ·å–hostså†™å…¥æƒé™
 :GET_HOSTS_PERM
 takeown /f "%SYSHOST%" >nul 2>&1
 icacls "%SYSHOST%" /grant Administrators:F >nul 2>&1
 goto :EOF
 
-:: »Ö¸´hostsÔ­ÉúÏµÍ³È¨ÏÞ
+:: æ¢å¤hostsåŽŸç”Ÿç³»ç»Ÿæƒé™
 :RESTORE_HOSTS_PERM
 icacls "%SYSHOST%" /setowner "NT AUTHORITY\SYSTEM" >nul 2>&1
 icacls "%SYSHOST%" /inheritance:r >nul 2>&1
@@ -97,7 +97,7 @@ call :GET_HOSTS_PERM
 copy /y "%TMPHOST%" "%SYSHOST%" >nul
 call :RESTORE_HOSTS_PERM
 ipconfig /flushdns >nul
-echo Íê³É£ºÒÑ¼ÓÔØÅäÖÃ1£¬DNSË¢ÐÂÍê±Ï
+echo å®Œæˆï¼šå·²åŠ è½½é…ç½®1ï¼ŒDNSåˆ·æ–°å®Œæ¯•
 pause
 goto MENU
 
@@ -122,7 +122,7 @@ call :GET_HOSTS_PERM
 copy /y "%TMPHOST%" "%SYSHOST%" >nul
 call :RESTORE_HOSTS_PERM
 ipconfig /flushdns >nul
-echo Íê³É£ºÒÑ¼ÓÔØÅäÖÃ2£¬DNSË¢ÐÂÍê±Ï
+echo å®Œæˆï¼šå·²åŠ è½½é…ç½®2ï¼ŒDNSåˆ·æ–°å®Œæ¯•
 pause
 goto MENU
 
@@ -132,9 +132,9 @@ call :GET_HOSTS_PERM
 copy /y "%BAKHOST%" "%SYSHOST%" >nul
 call :RESTORE_HOSTS_PERM
 ipconfig /flushdns >nul
-echo Íê³É£ºÒÑ»Ö¸´ÏµÍ³Ô­Ê¼hosts±¸·Ý
+echo å®Œæˆï¼šå·²æ¢å¤ç³»ç»ŸåŽŸå§‹hostså¤‡ä»½
 ) else (
-echo ¾¯¸æ£ºÎ´ÕÒµ½±¸·Ý£¬ÇëÏÈ¼ÓÔØÈÎÒâÅäÖÃÉú³É±¸·Ý
+echo è­¦å‘Šï¼šæœªæ‰¾åˆ°å¤‡ä»½ï¼Œè¯·å…ˆåŠ è½½ä»»æ„é…ç½®ç”Ÿæˆå¤‡ä»½
 )
 pause
 goto MENU
