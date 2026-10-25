@@ -51,8 +51,8 @@ set "TMPHOST=%temp%\__tmp_hosts.txt"
 cls
 echo ======================================
 echo        Hosts双配置管理工具
-echo 1.载入配置1（不屏蔽豆包）
-echo 2.载入配置2（屏蔽豆包）
+echo 1.载入配置1
+echo 2.载入配置2
 echo 3.恢复系统原始hosts备份
 echo 4.退出
 echo ======================================
@@ -87,9 +87,6 @@ echo 0.0.0.0 api.bilibili.com
 echo 0.0.0.0 app.bilibili.com
 echo 0.0.0.0 s1.hdslb.com
 echo 0.0.0.0 upos-sz.bilivideo.com
-echo 0.0.0.0 codinghou.cn
-echo 0.0.0.0 www.ccw.site
-echo 0.0.0.0 ccw.site
 echo 0.0.0.0 search.bilibili.com/all
 echo 0.0.0.0 search.bilibili.com
 ) >"%TMPHOST%"
