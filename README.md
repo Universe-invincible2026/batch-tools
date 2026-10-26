@@ -6,7 +6,8 @@
 **使用前请仔细阅读源码，自行承担全部风险。**
 
 ## 脚本清单
-- HostsTool：Hosts管理工具（带密码验证，默认12345）
+- 模拟 hosts 权限：只有管理员才能使用更改的文件
+- 模拟 ProgramFiles 权限：只有管理员才能使用更改的文件夹
 - BitLockerTool：BitLocker分区解锁工具
 
 ## 许可证
